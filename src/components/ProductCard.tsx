@@ -1,11 +1,15 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Bungee } from "next/font/google";
-import { type } from "os";
+
 const bungee = Bungee({
   subsets: ["latin"],
-  weight: ["400"], // Bungee has only 400
+  weight: ["400"],
   variable: "--font-en",
 });
+
 type ProductCardProps = {
   id: number;
   name: string;
@@ -13,8 +17,18 @@ type ProductCardProps = {
   image: string;
 };
 
+export default function ProductCard({ id, name, price, image }: ProductCardProps) {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-export default function ProductCard({ id, name, price, image }:ProductCardProps) {
+  const handleClick = () => {
+    setLoading(true);
+    // نضيف تأخير بسيط باش يبان الـ loading
+    setTimeout(() => {
+      router.push(`/product/${id}`);
+    }, 400);
+  };
+
   return (
     <div
       className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center 
@@ -39,12 +53,17 @@ export default function ProductCard({ id, name, price, image }:ProductCardProps)
       <p className="text-xl font-semibold text-green-600 mt-2">{price} دج</p>
 
       {/* Button → Go to details */}
-      <Link
-        href={`/product/${id}`}
-        className="mt-3 bg-black text-white px-4 py-2 rounded-xl hover:bg-gray-800 transition"
+      <button
+        onClick={handleClick}
+        disabled={loading}
+        className={`mt-3 px-4 py-2 rounded-xl transition ${
+          loading
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-black text-white hover:bg-gray-800"
+        }`}
       >
-        اطلب الآن
-      </Link>
+        {loading ? "⏳ جاري التحميل..." : "اطلب الآن"}
+      </button>
     </div>
   );
 }

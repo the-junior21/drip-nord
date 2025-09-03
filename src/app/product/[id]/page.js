@@ -343,6 +343,8 @@ export default function ProductPage() {
   const [phone, setPhone] = useState("");
   const [wilaya, setWilaya] = useState(wilayas[0].name);
     const [commune, setCommune] = useState(wilayas[0].communes[0]);
+      const [loading, setLoading] = useState(false);
+
 
   const [address, setAddress] = useState("");
   const [delivery, setDelivery] = useState("home");
@@ -366,6 +368,7 @@ export default function ProductPage() {
       alert("⚠️ يرجى ملء جميع الحقول المطلوبة");
       return;
     }
+    
 
     const orderData = {
       name,
@@ -382,6 +385,20 @@ export default function ProductPage() {
       //status:["pending","confirmed"],
       total,
     };
+        setLoading(true);
+    try {
+      await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      });
+      alert("✅ تم إرسال الطلب بنجاح!");
+    } catch (err) {
+      alert("❌ حدث خطأ أثناء الإرسال");
+    } finally {
+      setLoading(false);
+    }
+
 
     await fetch("/api/orders", {
       method: "POST",
@@ -398,7 +415,7 @@ export default function ProductPage() {
       <Swiper navigation modules={[Navigation]} className="mb-6">
         {(product.images ?? [product.image]).map((img, i) => (
           <SwiperSlide key={i}>
-            <Image
+            <img
               src={img}
               alt={product.name}
               className="w-full h-64 object-cover rounded-lg"
@@ -548,9 +565,12 @@ export default function ProductPage() {
       {/* زر الإرسال */}
       <button
         onClick={handleOrder}
-        className="mt-6 w-full bg-black text-white py-2 rounded"
+        disabled={loading}
+        className={`mt-6 w-full py-2 rounded ${
+          loading ? "bg-gray-400 cursor-not-allowed" : "bg-black text-white"
+        }`}
       >
-        ⬅️ تأكيد الطلب
+        {loading ? "⏳ جاري الإرسال..." : "⬅️ تأكيد الطلب"}
       </button>
     </div>
   );
