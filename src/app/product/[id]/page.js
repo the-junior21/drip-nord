@@ -5,6 +5,8 @@ import { useParams } from "next/navigation";
 import { products } from "@/data/products";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import Image from "next/image";
+
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -396,7 +398,7 @@ export default function ProductPage() {
       <Swiper navigation modules={[Navigation]} className="mb-6">
         {(product.images ?? [product.image]).map((img, i) => (
           <SwiperSlide key={i}>
-            <img
+            <Image
               src={img}
               alt={product.name}
               className="w-full h-64 object-cover rounded-lg"

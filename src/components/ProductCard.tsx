@@ -7,7 +7,7 @@ const bungee = Bungee({
   variable: "--font-en",
 });
 
-export default function ProductCard({ id, name, price, image, description }) {
+export default function ProductCard({ id, name, price, image }) {
   return (
     <div
       className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center 
