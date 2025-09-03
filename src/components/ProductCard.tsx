@@ -1,18 +1,20 @@
 import Link from "next/link";
 import { Bungee } from "next/font/google";
-
+import { type } from "os";
 const bungee = Bungee({
   subsets: ["latin"],
   weight: ["400"], // Bungee has only 400
   variable: "--font-en",
 });
 type ProductCardProps = {
-  id: string;       // or number, depending on your data
+  id: number;
   name: string;
   price: number;
   image: string;
 };
-export default function ProductCard({ id, name, price, image }: ProductCardProps) {
+
+
+export default function ProductCard({ id, name, price, image }:ProductCardProps) {
   return (
     <div
       className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center 

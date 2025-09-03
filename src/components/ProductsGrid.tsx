@@ -1,6 +1,6 @@
 // components/ProductsGrid.jsx
 import ProductCard from "./ProductCard";
-import {products} from "@/data/products"
+import { products } from "@/data/products"
 
 
 export default function ProductsGrid() {
@@ -11,7 +11,14 @@ export default function ProductsGrid() {
       {/* Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            image={product.image}
+          />
+
         ))}
       </div>
     </section>

@@ -4,7 +4,6 @@ export const products = [
     name: "Slim fit T-shirts",
     price: 2500,
     image: "/slim-fit-tshirts/photo_5873069161545058891_x.jpg",
-    description: "قماش عالي الجودة – متوفر بمقاسات مختلفة",
     images: ["/slim-fit-tshirts/photo_5873069161545058891_x.jpg"
     , "/slim-fit-tshirts/photo_5873069161545058889_y.jpg",
     "/slim-fit-tshirts/photo_5873069161545058890_y.jpg"],
@@ -15,7 +14,6 @@ export const products = [
     name: "Under Armor Compression",
     price: 4500,
     image: "/under-armor-compression/photo_5868285534344956447_x.jpg",
-    description: "مريح وخفيف للرياضة",
     images: ["/under-armor-compression/photo_5868285534344956447_x.jpg",
     "/under-armor-compression/photo_5868285534344956445_x.jpg",
     "/under-armor-compression/photo_5868285534344956446_x.jpg"
@@ -35,7 +33,6 @@ export const products = [
      "/nike-compression/photo_5868285534344956453_y.jpg",
 
     ],
-    description: "مريح وخفيف للرياضة",
          colors: ["black"]
 
   },
@@ -50,7 +47,6 @@ export const products = [
       "/baggy-joggers/photo_5873069161545058897_y.jpg",
       "/baggy-joggers/photo_5873069161545058896_y.jpg",
     ] ,
-    description: "ستايل كاجوال مميز",
          colors: ["black","gray"]
 
   },
@@ -65,7 +61,6 @@ export const products = [
       "/nike-track-pants/photo_5873069161545058914_y.jpg",
       "/nike-track-pants/photo_5873069161545058915_y.jpg",
     ], 
-    description: "ستايل كاجوال مميز",
          colors: ["black","white"]
 
   },
@@ -80,7 +75,6 @@ export const products = [
       "/jorts/photo_5873069161545058910_x.jpg",
       "/jorts/photo_5873069161545058911_x.jpg",
     ] ,
-    description: "ستايل كاجوال مميز",
          colors: ["black","gray"]
 
   },
@@ -95,7 +89,6 @@ export const products = [
       "/nike-joggers/photo_5873069161545058902_x.jpg",
 
     ],
-    description: "ستايل كاجوال مميز",
          colors: ["black","gray"]
 
   },
@@ -109,7 +102,6 @@ export const products = [
       "/shorts/photo_5873069161545058904_x.jpg",
       "/shorts/photo_5873069161545058905_x.jpg",
     ] ,
-    description: "ستايل كاجوال مميز",
          colors: ["black","gray"]
 
   },
@@ -124,7 +116,6 @@ export const products = [
       "/oversize-tshirt/photo_5873069161545058920_x.jpg",
       "/oversize-tshirt/photo_5873069161545058921_x.jpg",
     ] ,
-    description: "ستايل كاجوال مميز",
          colors: ["black","white"]
 
   },
