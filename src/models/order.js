@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { type } from "os";
+
 
 const OrderSchema = new mongoose.Schema({
   name: String,
