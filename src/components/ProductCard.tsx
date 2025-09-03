@@ -6,8 +6,13 @@ const bungee = Bungee({
   weight: ["400"], // Bungee has only 400
   variable: "--font-en",
 });
-
-export default function ProductCard({ id, name, price, image }) {
+type ProductCardProps = {
+  id: string;       // or number, depending on your data
+  name: string;
+  price: number;
+  image: string;
+};
+export default function ProductCard({ id, name, price, image }: ProductCardProps) {
   return (
     <div
       className="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center 
